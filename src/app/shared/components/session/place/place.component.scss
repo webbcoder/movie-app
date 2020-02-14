@@ -1,0 +1,11 @@
+.list-group-item{
+  padding: .5rem;
+  background: aquamarine;
+  &.disabled{
+    background-color: red;
+  }
+}
+.form-check-input,
+.form-check-inline{
+  margin-right: 0;
+}

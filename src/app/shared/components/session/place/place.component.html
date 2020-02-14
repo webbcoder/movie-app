@@ -1,0 +1,17 @@
+<div>
+  <ul class="list-group list-group-horizontal-sm">
+    <li class="list-group-item"
+        *ngFor="let place of places"
+        [class.disabled]="!place.isFree"
+    >
+      <div class="form-check form-check-inline" [formGroup]="parentForm">
+        <input class="form-check-input" type="radio" name="place"
+               id="inlineRadio{{place.position}}"
+               value="{{row}}:{{place.position}}"
+               [formControlName]="'place'"
+
+        >
+      </div>
+    </li>
+  </ul>
+</div>

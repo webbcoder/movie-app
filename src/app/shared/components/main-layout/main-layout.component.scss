@@ -1,0 +1,34 @@
+a{
+  text-decoration: none;
+}
+.search{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  .form-control{
+    margin-bottom: 0;
+  }
+  button{
+    margin-left: 1rem;
+  }
+}
+.form-control {
+  display: flex;
+  color: #888;
+  margin-bottom: .8rem;
+  padding: 0;
+  height: auto;
+  width: auto;
+
+  &.invalid {
+    color: var(--primary-color);
+    input {
+      border-color: var(--primary-color);
+    }
+  }
+
+  .validation {
+    color: var(--primary-color);
+  }
+}

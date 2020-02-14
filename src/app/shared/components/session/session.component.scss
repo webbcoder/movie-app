@@ -1,0 +1,11 @@
+.place-row {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  .row-number {
+    width: 20px;
+  }
+}

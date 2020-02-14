@@ -1,0 +1,13 @@
+<div *ngIf="isResult; else noResult" class="row">
+  <app-movie  [movie]="movie"
+             class="col-5 col-sm-6 col-md-4 movie-container"
+             *ngFor="let movie of movies" >
+  </app-movie>
+</div>
+<ng-template #noResult>
+  <div class="noresult">
+    <h2 class="">No results...</h2>
+    <a routerLink="/" class="btn btn-dark">Back to Main page</a>
+  </div>
+</ng-template>
+

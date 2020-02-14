@@ -1,0 +1,36 @@
+<div *ngIf="movie$ | async as movie; else loading">
+  <div class="movie">
+    <div class="header">
+      <h1>{{movie.name | titlecase}}</h1>
+    </div>
+    <div class="cover">
+      <img
+        [src]="movie.pictureLink"
+        (error)="movie.pictureLink=defaultImg"
+      >
+    </div>
+    <div class="info">
+      <strong>Genre:</strong>
+      <ul class="list-inline">
+        <li class="list-inline-item"  *ngFor="let genre of movie.genre_id">{{genre | genre}}</li>
+      </ul>
+      <p>
+        <strong>Date:</strong>
+        <span>{{movie.dateOfRelease | date: 'medium': null}}</span>
+      </p>
+
+    </div>
+    <div>
+      <p>{{movie.description}}</p>
+    </div>
+  </div>
+</div>
+<div class="session" *ngIf="sessions$| async as session; else sessionsLoading">
+  <app-session [session]="session"></app-session>
+</div>
+<ng-template #loading>
+  <p class="text-center">Loading...</p>
+</ng-template>
+<ng-template #sessionsLoading>
+  <p class="text-center">Loading...</p>
+</ng-template>

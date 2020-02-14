@@ -1,1 +1,15 @@
-<p>movie works!</p>
+<div class="card" >
+  <div class="cover">
+    <img [src]="movie.pictureLink"
+         (error)="movie.pictureLink=defaultImg"
+         class="card-img-top" alt="{{movie.name}}">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{movie.name| titlecase}}</h5>
+    <p class="card-text">{{movie.description | slice:0:200}}...</p>
+
+  </div>
+  <div class="card-footer">
+    <a [routerLink]="['/movie', movie._id]" class="btn btn-primary">Open</a>
+  </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Movie} from "../../interfaces";
 
 @Component({
   selector: 'app-movie',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./movie.component.scss']
 })
 export class MovieComponent implements OnInit {
-
+  @Input() movie: Movie;
+  defaultImg = 'https://via.placeholder.com/300';
+  @Output() onShowMovie: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit() {
+
   }
+
+
 
 }

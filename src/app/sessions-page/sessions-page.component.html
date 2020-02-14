@@ -1,0 +1,42 @@
+<div *ngIf="!loading; else loadingBlock">
+  <div *ngFor="let session of sessions"
+       class="card"
+  >
+    <div class="cover">
+      <img
+        [src]="session.movie.pictureLink"
+        (error)="session.movie.pictureLink=defaultImg"
+      >
+    </div>
+    <div class="info">
+      <h4>{{session.movie.name | titlecase}}</h4>
+      <strong>Genre:</strong>
+      <ul class="list-inline">
+        <li class="list-inline-item"  *ngFor="let genre of session.movie.genre_id">{{genre | genre}}</li>
+      </ul>
+      <p>
+        {{session.movie.description | slice: 0: 200}}
+      </p>
+      <table class="table table-sm table-borderless">
+        <thead>
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+          <th scope="col">Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{session.date | date: 'mediumDate' : null}}</td>
+          <td>{{session.date | date: 'shortTime' : null}}</td>
+          <td>{{session.ticketPrice | currency}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <a [routerLink]="['/movie', session.movie._id]" class="btn btn-link">Open</a>
+    </div>
+  </div>
+</div>
+<ng-template #loadingBlock>
+  <p class="text-center">Loading...</p>
+</ng-template>

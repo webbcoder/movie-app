@@ -1,1 +1,7 @@
-<p>home-page works!</p>
+<div class="row">
+  <app-movie [movie]="movie"
+             class="col-5 col-sm-6 col-md-4 movie-container"
+             *ngFor="let movie of movies" >
+  </app-movie>
+</div>
+
